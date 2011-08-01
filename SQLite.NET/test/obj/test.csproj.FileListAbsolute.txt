@@ -1,6 +1,0 @@
-C:\Work\SharpNLP\SQLite.NET\bin\test.exe.config
-C:\Work\SharpNLP\SQLite.NET\bin\test.exe
-C:\Work\SharpNLP\SQLite.NET\bin\test.pdb
-C:\Work\SharpNLP\SQLite.NET\test\obj\Debug\ResolveAssemblyReference.cache
-C:\Work\SharpNLP\SQLite.NET\test\obj\Debug\test.exe
-C:\Work\SharpNLP\SQLite.NET\test\obj\Debug\test.pdb
