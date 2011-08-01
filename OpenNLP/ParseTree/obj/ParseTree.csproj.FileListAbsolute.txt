@@ -1,3 +1,0 @@
-C:\Work\SharpNLP\OpenNLP\ParseTree\obj\Debug\ResolveAssemblyReference.cache
-C:\Work\SharpNLP\OpenNLP\ParseTree\obj\Debug\ParseTree.MainForm.resources
-C:\Work\SharpNLP\OpenNLP\ParseTree\obj\Debug\ParseTree.csproj.GenerateResource.Cache
