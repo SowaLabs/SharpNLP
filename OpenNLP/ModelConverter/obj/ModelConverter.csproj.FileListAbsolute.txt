@@ -1,7 +1,0 @@
-C:\Work\SharpNLP\OpenNLP\ModelConverter\bin\Debug\ModelConverter.exe
-C:\Work\SharpNLP\OpenNLP\ModelConverter\bin\Debug\ModelConverter.pdb
-C:\Work\SharpNLP\OpenNLP\ModelConverter\bin\Debug\SharpEntropy.dll
-C:\Work\SharpNLP\OpenNLP\ModelConverter\bin\Debug\SharpEntropy.pdb
-C:\Work\SharpNLP\OpenNLP\ModelConverter\obj\Debug\ResolveAssemblyReference.cache
-C:\Work\SharpNLP\OpenNLP\ModelConverter\obj\Debug\ModelConverter.exe
-C:\Work\SharpNLP\OpenNLP\ModelConverter\obj\Debug\ModelConverter.pdb
