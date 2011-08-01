@@ -74,10 +74,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SharpWordNet, Version=1.0.2435.492, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpWordNet\bin\Debug\SharpWordNet.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -333,6 +329,10 @@
     <ProjectReference Include="..\..\SharpEntropy\SharpEntropy.csproj">
       <Project>{BF0BF8B0-1894-4EDF-BF51-F370B063797E}</Project>
       <Name>SharpEntropy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpWordNet\SharpWordNet.csproj">
+      <Project>{4C78C577-D001-45EA-9893-F5570BAB16C0}</Project>
+      <Name>SharpWordNet</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
