@@ -1,0 +1,15 @@
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\ToolsExample.exe.config
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\ToolsExample.exe
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\ToolsExample.pdb
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\OpenNLP.dll
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\SharpEntropy.dll
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\SharpWordNet.dll
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\SharpEntropy.pdb
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\SharpWordNet.pdb
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\OpenNLP.pdb
+C:\Work\SharpNLP\OpenNLP\ToolsExample\bin\Debug\OpenNLP.xml
+C:\Work\SharpNLP\OpenNLP\ToolsExample\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\OpenNLP\ToolsExample\obj\Debug\ToolsExample.MainForm.resources
+C:\Work\SharpNLP\OpenNLP\ToolsExample\obj\Debug\ToolsExample.csproj.GenerateResource.Cache
+C:\Work\SharpNLP\OpenNLP\ToolsExample\obj\Debug\ToolsExample.exe
+C:\Work\SharpNLP\OpenNLP\ToolsExample\obj\Debug\ToolsExample.pdb

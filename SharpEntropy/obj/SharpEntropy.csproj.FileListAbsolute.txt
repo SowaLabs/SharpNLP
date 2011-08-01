@@ -1,0 +1,9 @@
+C:\Work\SharpNLP\SharpEntropy\bin\Debug\SharpEntropy.dll
+C:\Work\SharpNLP\SharpEntropy\bin\Debug\SharpEntropy.pdb
+C:\Work\SharpNLP\SharpEntropy\bin\Debug\SharpEntropyDoc.xml
+C:\Work\SharpNLP\SharpEntropy\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\SharpEntropy\obj\Debug\SharpEntropy.dll
+C:\Work\SharpNLP\SharpEntropy\obj\Debug\SharpEntropy.pdb
+C:\Work\SharpNLP\SharpEntropy\bin\Release\SharpEntropy.dll
+C:\Work\SharpNLP\SharpEntropy\obj\Release\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\SharpEntropy\obj\Release\SharpEntropy.dll

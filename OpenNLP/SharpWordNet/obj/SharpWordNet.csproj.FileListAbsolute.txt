@@ -1,0 +1,5 @@
+C:\Work\SharpNLP\OpenNLP\SharpWordNet\bin\Debug\SharpWordNet.dll
+C:\Work\SharpNLP\OpenNLP\SharpWordNet\bin\Debug\SharpWordNet.pdb
+C:\Work\SharpNLP\OpenNLP\SharpWordNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\OpenNLP\SharpWordNet\obj\Debug\SharpWordNet.dll
+C:\Work\SharpNLP\OpenNLP\SharpWordNet\obj\Debug\SharpWordNet.pdb

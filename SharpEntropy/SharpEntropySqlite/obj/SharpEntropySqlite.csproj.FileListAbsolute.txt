@@ -1,0 +1,9 @@
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\SharpEntropySqlite.dll
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\SharpEntropySqlite.pdb
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\SharpEntropy.dll
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\System.Data.SQLite.dll
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\System.Data.SQLite.pdb
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\bin\Debug\SharpEntropy.pdb
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\obj\Debug\SharpEntropySqlite.dll
+C:\Work\SharpNLP\SharpEntropy\SharpEntropySqlite\obj\Debug\SharpEntropySqlite.pdb

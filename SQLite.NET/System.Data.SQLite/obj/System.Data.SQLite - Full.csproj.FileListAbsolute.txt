@@ -1,0 +1,10 @@
+C:\Work\SharpNLP\SQLite.NET\bin\System.Data.SQLite.dll
+C:\Work\SharpNLP\SQLite.NET\bin\System.Data.SQLite.pdb
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\ResolveAssemblyReference.cache
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.SQLiteCommand.bmp
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.SQLiteConnection.bmp
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.SQLiteDataAdapter.bmp
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.SR.resources
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite - Full.csproj.GenerateResource.Cache
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.dll
+C:\Work\SharpNLP\SQLite.NET\System.Data.SQLite\obj\Debug\System.Data.SQLite.pdb
