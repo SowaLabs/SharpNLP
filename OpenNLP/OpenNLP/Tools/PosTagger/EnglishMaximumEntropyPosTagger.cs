@@ -61,6 +61,10 @@ namespace OpenNLP.Tools.PosTagger
         public EnglishMaximumEntropyPosTagger(Stream stream) : base(GetModel(stream), new DefaultPosContextGenerator())
 		{
 		}
+
+        public EnglishMaximumEntropyPosTagger(Stream stream, int beamSize) : base(beamSize, GetModel(stream), new DefaultPosContextGenerator(), /*posLookupList=*/null)
+        { 
+        }
 		
 		private static SharpEntropy.IMaximumEntropyModel GetModel(string name)
 		{
