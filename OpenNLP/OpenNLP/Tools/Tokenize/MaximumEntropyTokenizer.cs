@@ -58,13 +58,18 @@ namespace OpenNLP.Tools.Tokenize
 		/// </summary>
         private SharpEntropy.IContextGenerator<Util.Pair<string, int>> mContextGenerator;
 		
-		internal static Regex AlphaNumeric = new Regex("^[A-Za-z0-9]+$");
+        internal static Regex AlphaNumeric = new Regex(@"^[\p{L}\d]+$");
 		
 		/// <summary>
 		/// optimization flag to skip alpha numeric tokens for further
 		/// tokenization 
 		/// </summary>
 		private bool mAlphaNumericOptimization;
+
+        /// <summary>
+        /// prevents splitting between alphanumeric characters
+        /// </summary>
+        private bool mSplitOptimizations;
 		
 		/// <summary>
 		/// list of probabilities for each token returned from call to
@@ -87,6 +92,21 @@ namespace OpenNLP.Tools.Tokenize
 				mAlphaNumericOptimization = value;
 			}
 		}
+
+        /// <summary>
+        /// Prevents splitting between alphanumeric characters
+        /// </summary>
+        virtual public bool SplitOptimizations
+        {
+            get
+            {
+                return mSplitOptimizations;
+            }
+            set
+            {
+                mSplitOptimizations = value;
+            }
+        }
 		
 		/// <summary>
 		/// Class constructor which takes the string locations of the
@@ -96,7 +116,8 @@ namespace OpenNLP.Tools.Tokenize
 		{
 			mContextGenerator = new TokenContextGenerator();
 			mAlphaNumericOptimization = false;
-			mModel = model;
+            mSplitOptimizations = false;
+            mModel = model;
             mNewTokens = new List<Util.Span>();
 			mTokenProbabilities = new List<double>(50);
 		}
@@ -139,9 +160,17 @@ namespace OpenNLP.Tools.Tokenize
 					double tokenProbability = 1.0;
 					for (int currentPosition = originalStart + 1; currentPosition < endPosition; currentPosition++)
 					{
+                        //Console.Write("{0} {1}|{2} ({3})", currentPosition - originalStart - 1, token[currentPosition - originalStart - 1], token[currentPosition - originalStart], token);
+                        if (mSplitOptimizations)
+                        {
+                            char leftChar = token[currentPosition - originalStart - 1];
+                            char rightChar = token[currentPosition - originalStart];
+                            if (char.IsLetterOrDigit(leftChar) && char.IsLetterOrDigit(rightChar)) { /*Console.WriteLine();*/ continue; }
+                        }                        
 						double[] probabilities = mModel.Evaluate(mContextGenerator.GetContext(new Util.Pair<string, int>(token, currentPosition - originalStart)));
 						string bestOutcome = mModel.GetBestOutcome(probabilities);
-						
+                        //Console.WriteLine(bestOutcome);
+
 						tokenProbability *= probabilities[mModel.GetOutcomeIndex(bestOutcome)];
 						if (bestOutcome == TokenContextGenerator.SplitIndicator)
 						{
