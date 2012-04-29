@@ -36,6 +36,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using OpenNLP.Tools.Util;
 
 namespace OpenNLP.Tools.Tokenize
 {
@@ -67,9 +68,9 @@ namespace OpenNLP.Tools.Tokenize
 		private bool mAlphaNumericOptimization;
 
         /// <summary>
-        /// prevents splitting between alphanumeric characters
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
         /// </summary>
-        private bool mSplitOptimizations;
+        private bool mUnicodeMapping;
 		
 		/// <summary>
 		/// list of probabilities for each token returned from call to
@@ -94,17 +95,17 @@ namespace OpenNLP.Tools.Tokenize
 		}
 
         /// <summary>
-        /// Prevents splitting between alphanumeric characters
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
         /// </summary>
-        virtual public bool SplitOptimizations
+        virtual public bool UnicodeMapping
         {
             get
             {
-                return mSplitOptimizations;
+                return mUnicodeMapping;
             }
             set
             {
-                mSplitOptimizations = value;
+                mUnicodeMapping = value;
             }
         }
 		
@@ -116,7 +117,7 @@ namespace OpenNLP.Tools.Tokenize
 		{
 			mContextGenerator = new TokenContextGenerator();
 			mAlphaNumericOptimization = false;
-            mSplitOptimizations = false;
+            mUnicodeMapping = false;
             mModel = model;
             mNewTokens = new List<Util.Span>();
 			mTokenProbabilities = new List<double>(50);
@@ -133,6 +134,8 @@ namespace OpenNLP.Tools.Tokenize
 		/// </returns>
 		public virtual Util.Span[] TokenizePositions(string input)
 		{
+            if (mUnicodeMapping) { input = Utils.MapUnicodeChars(input); }
+
 			Util.Span[] tokens = Split(input);
 			mNewTokens.Clear();
 			mTokenProbabilities.Clear();
@@ -161,7 +164,7 @@ namespace OpenNLP.Tools.Tokenize
 					for (int currentPosition = originalStart + 1; currentPosition < endPosition; currentPosition++)
 					{
                         //Console.Write("{0} {1}|{2} ({3})", currentPosition - originalStart - 1, token[currentPosition - originalStart - 1], token[currentPosition - originalStart], token);
-                        if (mSplitOptimizations)
+                        if (mAlphaNumericOptimization)
                         {
                             char leftChar = token[currentPosition - originalStart - 1];
                             char rightChar = token[currentPosition - originalStart];
@@ -281,6 +284,6 @@ namespace OpenNLP.Tools.Tokenize
 			System.IO.StreamReader dataReader = new System.IO.StreamReader(new System.IO.FileInfo(input).FullName);
 			SharpEntropy.ITrainingEventReader eventReader = new TokenEventReader(dataReader);
 			Train(eventReader, output);
-		}		
+		}
 	}
 }

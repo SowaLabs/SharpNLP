@@ -35,6 +35,7 @@
 
 using System;
 using System.Collections;
+using OpenNLP.Tools.Util;
 
 namespace OpenNLP.Tools.PosTagger
 {
@@ -64,7 +65,7 @@ namespace OpenNLP.Tools.PosTagger
 		/// Says whether a filter should be used to check whether a tag assignment
 		/// is to a word outside of a closed class.
 		/// </summary>
-		private bool mUseClosedClassTagsFilter = false;
+		//private bool mUseClosedClassTagsFilter = false;
 
 		private const int mDefaultBeamSize = 3;
 		
@@ -72,6 +73,11 @@ namespace OpenNLP.Tools.PosTagger
 		/// The size of the beam to be used in determining the best sequence of pos tags.
 		/// </summary>
 		private int mBeamSize;
+
+        /// <summary>
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
+        /// </summary>
+        private bool mUnicodeMapping = false;
 
 		private Util.Sequence mBestSequence;
 
@@ -153,17 +159,32 @@ namespace OpenNLP.Tools.PosTagger
 		/// Says whether a filter should be used to check whether a tag assignment
 		/// is to a word outside of a closed class.
 		/// </summary>
-		protected internal bool UseClosedClassTagsFilter
-		{
-			get
-			{
-				return mUseClosedClassTagsFilter;
-			}
-			set
-			{
-				mUseClosedClassTagsFilter = value;
-			}
-		}
+        //protected internal bool UseClosedClassTagsFilter
+        //{
+        //    get
+        //    {
+        //        return mUseClosedClassTagsFilter;
+        //    }
+        //    set
+        //    {
+        //        mUseClosedClassTagsFilter = value;
+        //    }
+        //}
+
+        /// <summary>
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
+        /// </summary>
+        virtual public bool UnicodeMapping
+        {
+            get
+            {
+                return mUnicodeMapping;
+            }
+            set
+            {
+                mUnicodeMapping = value;
+            }
+        }
 
 		protected internal int BeamSize
 		{
@@ -211,16 +232,27 @@ namespace OpenNLP.Tools.PosTagger
 		{
 			return new PosEventReader(reader, mContextGenerator);
 		}
-		
-		public virtual ArrayList Tag(ArrayList tokens)
+
+        private void MapUnicodeCharsInTokens(ArrayList tokens)
+        {
+            for (int i = 0; i < tokens.Count; i++)
+            {
+                tokens[i] = Utils.MapUnicodeChars((string)tokens[i]);
+            }
+        }
+
+        public virtual ArrayList Tag(ArrayList tokens)
 		{
+            if (mUnicodeMapping) { MapUnicodeCharsInTokens(tokens); }
 			mBestSequence = Beam.BestSequence(tokens, null);
 			return new ArrayList(mBestSequence.Outcomes);
 		}
 		
-		public virtual string[] Tag(string[] tokens)
+		public virtual string[] Tag(string[] _tokens)
 		{
-            mBestSequence = Beam.BestSequence(new ArrayList(tokens), null);
+            ArrayList tokens = new ArrayList(_tokens);
+            if (mUnicodeMapping) { MapUnicodeCharsInTokens(tokens); }
+            mBestSequence = Beam.BestSequence(tokens, null);
             return mBestSequence.Outcomes.ToArray();
 		}
 		

@@ -324,6 +324,7 @@
     <Compile Include="Tools\Util\TreeSet.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tools\Util\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SharpEntropy\SharpEntropy.csproj">

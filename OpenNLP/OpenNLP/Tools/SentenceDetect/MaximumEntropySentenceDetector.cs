@@ -35,6 +35,7 @@
 
 using System;
 using System.Collections.Generic;
+using OpenNLP.Tools.Util;
 
 namespace OpenNLP.Tools.SentenceDetect
 {
@@ -65,6 +66,11 @@ namespace OpenNLP.Tools.SentenceDetect
 		/// The list of probabilities associated with each decision
 		/// </summary>
 		private List<double> mSentenceProbs;
+
+        /// <summary>
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
+        /// </summary>
+        private bool mUnicodeMapping;
 		
 		/// <summary>
 		/// Constructor which takes a IMaximumEntropyModel and calls the three-arg
@@ -78,6 +84,7 @@ namespace OpenNLP.Tools.SentenceDetect
 		public MaximumEntropySentenceDetector(SharpEntropy.IMaximumEntropyModel model) : this(model, new SentenceDetectionContextGenerator(DefaultEndOfSentenceScanner.GetEndOfSentenceCharacters()), new DefaultEndOfSentenceScanner())
 		{
             mSentenceProbs = new List<double>(50);
+            mUnicodeMapping = false;
 		}
 		
 		/// <summary>
@@ -118,6 +125,21 @@ namespace OpenNLP.Tools.SentenceDetect
 			mContextGenerator = contextGenerator;
 			mScanner = scanner;
 		}
+
+        /// <summary>
+        /// Maps some unicode characters to the ASCII range for better compatibility with the training set (Brown corpus).
+        /// </summary>
+        virtual public bool UnicodeMapping
+        {
+            get
+            {
+                return mUnicodeMapping;
+            }
+            set
+            {
+                mUnicodeMapping = value;
+            }
+        }
 		
 		/// <summary>
 		/// Returns the probabilities associated with the most recent
@@ -220,6 +242,8 @@ namespace OpenNLP.Tools.SentenceDetect
 		/// </returns>
 		public virtual int[] SentencePositionDetect(string input)
 		{
+            if (mUnicodeMapping) { input = Utils.MapUnicodeChars(input); }
+
 			double sentenceProbability = 1;
 			mSentenceProbs.Clear();
 			System.Text.StringBuilder buffer = new System.Text.StringBuilder(input);
