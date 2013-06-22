@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -325,13 +325,14 @@
     <Compile Include="Tools\Util\TreeSet.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tools\Util\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SharpEntropy\SharpEntropy2008.csproj">
+    <ProjectReference Include="..\..\SharpEntropy\SharpEntropy.csproj">
       <Project>{BF0BF8B0-1894-4EDF-BF51-F370B063797E}</Project>
       <Name>SharpEntropy</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpWordNet\SharpWordNet2008.csproj">
+    <ProjectReference Include="..\SharpWordNet\SharpWordNet.csproj">
       <Project>{4C78C577-D001-45EA-9893-F5570BAB16C0}</Project>
       <Name>SharpWordNet</Name>
     </ProjectReference>
