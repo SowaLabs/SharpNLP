@@ -34,6 +34,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace SharpEntropy
@@ -77,6 +78,12 @@ namespace SharpEntropy
 		{
 			mReader = reader;
 			mOutcomeNames = reader.GetOutcomeLabels();
+			// Quick & dirty solution for reading the latest OpenNLP sentence detection models
+			if (mOutcomeNames.Length == 2 && mOutcomeNames.Contains("n") && mOutcomeNames.Contains("s"))
+			{ 
+				mOutcomeNames[Array.IndexOf(mOutcomeNames, "n")] = "F";
+				mOutcomeNames[Array.IndexOf(mOutcomeNames, "s")] = "T";
+			}
 			mCorrectionConstant = (double)reader.CorrectionConstant;
 			mCorrectionParameter = reader.CorrectionParameter;
 			
